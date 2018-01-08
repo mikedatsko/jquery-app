@@ -51,9 +51,7 @@ gulp.task('build:js:prod', () => {
   return gulp.src(srcJS)
     .pipe(concat('app.js'))
     .pipe(sourcemaps.init())
-    .pipe(uglify().on('error', function(e){
-      console.log(e);
-    }))
+    .pipe(uglify())
     .pipe(minify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist));
